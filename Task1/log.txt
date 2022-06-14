@@ -1,0 +1,31 @@
+commit 445dd91584e925e167b5d53abc89f0004aec4207
+Author: Vadim Anpilogov <dwx@ukr.net>
+Date:   Tue Jun 14 14:47:45 2022 +0300
+
+    Revert "added somechanges to README.md"
+    
+    This reverts commit ead73a23343b61879c36e5a53c4274b435a2f6ce.
+
+commit ead73a23343b61879c36e5a53c4274b435a2f6ce
+Author: Vadim Anpilogov <dwx@ukr.net>
+Date:   Tue Jun 14 14:47:01 2022 +0300
+
+    added somechanges to README.md
+
+commit b542f4753548d9a3e1fd06af832b341d4ce8c638
+Author: Vadim Anpilogov <dwx@ukr.net>
+Date:   Tue Jun 14 14:32:08 2022 +0300
+
+    added .gitignore and README.md
+
+commit 9a3b266d94f436b7654cf5dfc709c9b3bb88942d
+Author: Vadim Anpilogov <dwx@ukr.net>
+Date:   Tue Jun 14 14:25:57 2022 +0300
+
+    added anytestfile
+
+commit 8c0dd3130732b150224c447ad15157c4808cbe89
+Author: Vadim Anpilogov <dwx@ukr.net>
+Date:   Tue Jun 14 14:23:33 2022 +0300
+
+    added README.md files
