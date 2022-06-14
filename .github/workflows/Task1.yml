@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Print the list of files/directories in your github repository.Print content of your log.txt file. Print: “Hello from “your DEPLOY_VER variable’s content” commit”
+      - name: Print the list of files/directories in your github repository;log.txt file;“Hello from “your DEPLOY_VER variable’s content” commit”
         run : |
           ls -l
           echo “Hello from ${{ env.DEPLOY_VER }} commit”
