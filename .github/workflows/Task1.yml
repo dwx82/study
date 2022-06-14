@@ -5,6 +5,7 @@ name: workflow
 env :
   DEPLOY_VER : "${{ github.sha }}"
   YEAR       : "2021"
+  
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
@@ -20,25 +21,20 @@ on:
 jobs:
 
 
-
   # This job called "First_job"
   First_job:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    
-      - name: Clone repo
-        uses: actions/checkout@v1
-        
-      - name: Print the list of files/directories in your github repository;log.txt file;“Hello from “your DEPLOY_VER variable’s content” commit”
-        run : |
-          ls -a
-          echo “Hello from ${{ env.DEPLOY_VER }} commit”
-          cat Task1\log.txt
-    
-    
-    
+      - uses : actions/checkout@v1
+      - name : Print the list of files/directories in your github repository;log.txt file;“Hello from “your DEPLOY_VER variable’s content” commit”
+        run  : |
+            ls -a
+            echo “Hello from ${{ env.DEPLOY_VER }} commit”
+            cat Task1/log.txt
+  
+  
   Second_job:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -49,8 +45,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Print the system date and time;“Day - “DAY__OF_THE_MONTH”; Month - “ MONTH”; Year - “YEAR”
-        env:
+        env :
          DAY__OF_THE_MONTH: "32"
         run : |
           date
           echo "Day - $DAY__OF_THE_MONTH; Month - ${{ env.MONTH }}; Year - ${{ env.YEAR }}"
+        
+      #For security reasons secrets can`t be viewed in any way  
+      - name: Secret day
+        run : echo “My favorite day of the week is ${{ secrets.FAVORITE_DAY_OF_WEEK }}””
