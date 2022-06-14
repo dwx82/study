@@ -1,0 +1,59 @@
+# This is a basic workflow to help you get started with Actions
+
+name: workflow
+
+env :
+  DEPLOY_VER : "${{ github.sha }}"
+  YEAR       : "2021"
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  # This job called "First_job"
+  First_job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Print the list of files/directories in your github repository.Print content of your log.txt file. Print: “Hello from “your DEPLOY_VER variable’s content” commit”
+        run : |
+          ls -l
+          echo “Hello from ${{ env.DEPLOY_VER }} commit”
+          
+      - name: 
+        run : cat log.txt
+
+      # Runs a set of commands using the runners shell
+      - name: 
+        run : 
+        
+  Second_job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    needs  : [First_job]
+    env    :
+     MONTH : "july"
+      
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Print the system date and time
+        run : date()
+      
+  
+      - name: Print your variable’s content: “Day - “DAY__OF_THE_MONTH”; Month - “ MONTH”; Year - “YEAR”.
+        run : |
+          echo "Day - ${{ env.DAY__OF_THE_MONTH }}; Month - ${{ env.MONTH }}"; Year - ${{ env.YEAR }}
+
+      # Runs a set of commands using the runners shell
+      - name: Print: “Hello from “your DEPLOY_VER variable’s content” commit”
+        run : 
