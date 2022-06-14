@@ -45,4 +45,4 @@ jobs:
          DAY__OF_THE_MONTH: "32"
         run : |
           date
-          echo "Day - $DAY__OF_THE_MONTH; Month - ${{ env.MONTH }}"; Year - ${{ env.YEAR }}"
+          echo "Day - $DAY__OF_THE_MONTH; Month - ${{ env.MONTH }}; Year - ${{ env.YEAR }}"
