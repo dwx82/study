@@ -41,7 +41,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Print the system date and time;“Day - “DAY__OF_THE_MONTH”; Month - “ MONTH”; Year - “YEAR”
+        env:
+         DAY__OF_THE_MONTH: "32"
         run : |
           date
-          #echo "Day - ${{ env.DAY__OF_THE_MONTH }}; Month - ${{ env.MONTH }}"; Year - ${{ env.YEAR }}
+          echo "Day - $DAY__OF_THE_MONTH; Month - ${{ env.MONTH }}"; Year - ${{ env.YEAR }}
   
