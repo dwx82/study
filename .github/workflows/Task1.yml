@@ -31,7 +31,7 @@ jobs:
       - name : Print the list of files/directories in your github repository;log.txt file;“Hello from “your DEPLOY_VER variable’s content” commit”
         run  : |
             ls -a
-            echo  “\nHello from ${{ env.DEPLOY_VER }} commit\n”
+            echo -e “\nHello from ${{ env.DEPLOY_VER }} commit\n”
             cat Task1/log.txt
   
   
