@@ -4,7 +4,7 @@ on:
   push:
     branches: ['master']
 env:
-  DOCKER_HUB_REPO: study
+  DOCKER_HUB_REPO: "study"
   
 jobs:
   push_to_registry:
