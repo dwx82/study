@@ -4,7 +4,6 @@ on:
   push:
     branches: ['master']
 env:
-  DOCKER_HUB_NAME: megadocker2000
   DOCKER_HUB_REPO: study
   
 jobs:
@@ -25,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{DOCKER_HUB_NAME}}/${{DOCKER_HUB_REPO}}
+          images: ${{ secrets.DOCKER_USERNAME }}/${{DOCKER_HUB_REPO}}
       
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
