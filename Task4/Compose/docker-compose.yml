@@ -1,0 +1,28 @@
+# Версия схемы, которую мы используем.
+# Зависит от установленной версии docker
+# Вроде отказалаись, должно работать и без неё
+version: "3"
+
+# Определяем список сервисов — services. 
+services:
+
+  myimage: # Имя сервиса
+    image: $NAME1
+    ports:
+      - $PORTS
+    deploy:
+      mode: replicated
+      replicas: 5
+
+  javaimage: # Имя сервиса
+    image: $NAME2
+    depends_on:
+      - dbimage
+
+  dbimage:
+    # Имя образа. Здесь мы используем базу данных Postgres
+    image: $NAME3
+    environment:
+      # А так задаются переменные окружения
+      POSTGRES_PASSWORD: password
+
