@@ -1,0 +1,11 @@
+---
+plugin: aws_ec2
+regions:
+  - us-east-1
+filters:
+  # All instances with their `Name` tag set to `CentOS*`
+  tag:Name: CentOS*
+compose:
+  ansible_host: public_ip_address
+
+#ansible-playbook -u ec2-user --private-key=n_virginia.cer playbook.yml

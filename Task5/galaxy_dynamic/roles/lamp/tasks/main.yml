@@ -1,0 +1,48 @@
+---
+# tasks file for lamp
+    - name: Enable Some packages from amazon-linux-extras packages
+      shell: "amazon-linux-extras enable docker"
+
+    - name: clean yum metadata cache
+      command: yum clean metadata
+      args:
+        warn: false
+
+    - name: Installing docker
+      shell: yum install -y docker && pip3 install docker
+
+    - name: Enable Docker CE service at startup
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: httpd
+      docker_container:
+        name: apache
+        image: httpd
+        ports: ['80:80']
+
+    - name: mysql
+      docker_container:
+        name: mysql
+        image: mysql
+        ports: ['3306:3306']
+        hostname: mysql
+        env:
+          MYSQL_ROOT_PASSWORD: "{{ root_password }}"
+          MYSQL_USER: "{{ user }}"
+          MYSQL_PASSWORD: "{{ password }}"
+
+    - name: phpmyadmin
+      docker_container:
+        name: phpmyadmin
+        image: phpmyadmin
+        ports: ['8080:80']
+
+    - name: Result
+      shell: docker ps
+      register: result
+
+    - debug:
+        var: result
