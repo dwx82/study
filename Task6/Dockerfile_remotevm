@@ -1,0 +1,5 @@
+FROM alpine
+
+ENV PASSWORD=default
+
+CMD echo $PASSWORD
