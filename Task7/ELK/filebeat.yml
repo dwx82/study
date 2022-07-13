@@ -1,0 +1,10 @@
+filebeat.inputs:
+  - type: docker
+    containers.ids:
+      containers.ids:
+        - '6d2747f2311f*'
+        - 'd6c43fb85db2585956de604a00bc709a3a27142b69b744665a0c8384c3bc9775'
+# i wiil get logs from two containers, it`s a very big system load to get logs from all of them
+# and for Logstash it would be recursivly.
+output.logstash:
+  hosts: ["127.0.0.1:5044"]

@@ -1,0 +1,4 @@
+[linux]
+%{ for ip in awsip ~}
+${ip}
+%{ endfor ~}
